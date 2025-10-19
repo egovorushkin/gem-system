@@ -182,7 +182,27 @@ services:
       interval: 10s
       timeout: 5s
       retries: 10
-  # persons-api
+
+  persons-api:
+    build:
+      context: ./person-service
+      dockerfile: Dockerfile
+    container_name: persons-api
+    ports:
+      - "8092:8092"
+    environment:
+      POSTGRES_HOST: person-postgres
+      POSTGRES_PORT: 5432
+      SPRING_PROFILES_ACTIVE: docker
+      OTLP_EXPORTER_ENDPOINT: http://alloy:4318
+    depends_on:
+      person-postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/actuator/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
   # api
 
 volumes:
