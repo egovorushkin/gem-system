@@ -1,4 +1,4 @@
-package com.gem.person_service;
+package com.gem.personservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
