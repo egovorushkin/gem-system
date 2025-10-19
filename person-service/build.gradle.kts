@@ -115,7 +115,7 @@ foundSpecifications.forEach { specFile ->
 
     val taskName = buildGenerateApiTaskName(specFile.nameWithoutExtension)
     logger.lifecycle("Register task ${taskName} from ${ourDir.get()}")
-    val basePackage = "net.proselyte.${packageName}"
+    val basePackage = "com.gem.${packageName}"
 
     tasks.register(taskName, GenerateTask::class) {
         generatorName.set("spring")
@@ -283,7 +283,7 @@ publishing {
 
                 create<MavenPublication>("publish${name.replaceFirstChar(Char::uppercase)}Jar") {
                     artifact(jarFile)
-                    groupId = "net.proselyte"
+                    groupId = "com.gem"
                     artifactId = jarBaseName
                     version = "1.0.0-SNAPSHOT"
 
