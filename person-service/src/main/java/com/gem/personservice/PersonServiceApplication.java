@@ -1,4 +1,4 @@
-package com.gem.person_service;
+package com.gem.personservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
