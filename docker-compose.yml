@@ -24,7 +24,7 @@ services:
       POSTGRES_PASSWORD: keycloak
       POSTGRES_DB: keycloak
     ports:
-      - "5433:5432"
+      - "5444:5432"
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U keycloak" ]
       interval: 10s
@@ -58,7 +58,7 @@ services:
     container_name: individuals-keycloak
     command: start-dev --import-realm --metrics-enabled=true
     ports:
-      - "8080:8080"
+      - "8083:8080"
       - "9000:9000"
     environment:
       JAVA_OPTS: -Dkeycloak.migration.userExportStrategy=REALM_FILE
@@ -85,7 +85,7 @@ services:
     image: sonatype/nexus3:3.84.1-alpine
     container_name: nexus
     ports:
-      - "8081:8081"
+      - "8082:8081"
     environment:
       NEXUS_SECURITY_INITIAL_PASSWORD: admin
       NEXUS_SECURITY_RANDOMPASSWORD: false
